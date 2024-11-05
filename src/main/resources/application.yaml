@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: task-api
+  datasource:
+    primary:
+      jdbcUrl: jdbc:h2:~/test
+      username: root
+      password: pass
+      driver-class-name: org.h2.Driver
+    secondary:
+      jdbcUrl: jdbc:postgresql://localhost:5432/task_db
+      username: root
+      password: pass
+      driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+    primary:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    secondary:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  springdoc:
+    api-docs:
+      path: /api-docs
+    swagger-ui:
+      path: /swagger-ui.html
